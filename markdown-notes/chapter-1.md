@@ -74,17 +74,23 @@ A closed-loop control system uses a measurement of the output and feedback of th
 
 The whole regulation process can be divided into two stages
 
+<div align = center>
+
 **transient process** + **steady-state process**
+
+<img height = 300 src = "../assets/ch1-8.png"></div>
 
 - **transient process** reflects dynamic characteristics
 - **steady-state process** reflects steady-state characteristics
 
 #### Transient Response
 
-- reflects **dynamic characteristics**
-- swiftness: peak time, settling time
+<div align = left><img height = 200 src = "../assets/ch1-10.png"></div>
+
+- **swiftness**: peak time, settling time
 
 #### Steady-State Response
 
-- reflects **steady-state characteristics**
-- accuracy: steady-state error
+<div align = left><img height = 200 src = "../assets/ch1-9.png"></div>
+
+- **accuracy**: steady-state error

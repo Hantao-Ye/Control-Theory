@@ -1,6 +1,3 @@
-# Control-Theory
-About The personal notes of 20L757Q Control Theory in BJTU
-
 # 控制理论
 
 本项目为北京交通大学机械电子专业课——控制理论(20L757Q)课堂笔记

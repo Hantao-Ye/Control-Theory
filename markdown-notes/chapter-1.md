@@ -1,6 +1,6 @@
 # Chapter 1
 
-## Basic Terms and Concepts
+## 1-1 Basic Terms and Concepts
 
 - **Reference Components**: a reference component generates the reference signal or the input signal
 - **Controlled Variable**: the quantity or condition that is measured and controlled
@@ -18,7 +18,7 @@
 | ![water level control](../assets/ch1-1.png) |    water tank    |       water level       |
 | ![electronic furnace](../assets/ch1-2.png)  | electric furnace | the furnace temperature |
 
-## Types of Control
+## 1-2 Types of Control
 
 ### Open-loop Control Systems
 

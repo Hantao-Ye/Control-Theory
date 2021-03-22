@@ -135,6 +135,26 @@ $$
 
 <div align = center><img height = 150 src = "../assets/ch2-8.png"></div>
 
+#### Slide a Branch Point
+
+##### Backward
+
+<div align = center><img height = 150 src = "../assets/ch2-11.png"></div>
+
+##### Forward
+
+<div align = center><img height = 150 src = "../assets/ch2-12.png"></div>
+
+#### Interchanging the Neighboring
+
+##### Summing Points
+
+<div align = center><img height = 200 src = "../assets/ch2-13.png"></div>
+
+##### Branch Points
+
+<div align = center><img height = 200 src = "../assets/ch2-14.png"></div>
+
 ### Closed-Loop System Subjected to a Disturbance
 
 <div align = center><img height = 250 src = "../assets/ch2-9.png"></div>

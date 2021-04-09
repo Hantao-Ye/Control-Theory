@@ -186,3 +186,113 @@ $$
 - if two second-order systems have the same $\zeta$ but different $\omega_n$, they will exhibit the same overshoot asn the same oscillatory, which is called to have the **same relative stability**
 - underdamped system with $\zeta$ between 0.5 and 0.8 gets close to the final value more rapid ly than a critically or overdamped system
 - overdamped system is always sluggish in responding to any inputs
+
+## 3-5 Stability Analysis of the n-th Order Systems
+
+$$
+\frac{C(s)}{R(s)} = \frac{b_m s^m+b_{m-1}s^{m-1}+\cdots+b_1 s+b_0}{a_n s^n+a_{n-1}s^{n-1}+\cdots+a_1 s+a_0}=\frac{N(s)}{D(s)}
+$$
+
+For the unit step response
+
+$$
+C(s) = R(s)G(s) = \frac{1}{s}\frac{N(s)}{D(s)}=\frac{K\prod_{i=1}^m(s+z_i)}{\prod_{j=1}^q(s+p_j)\prod_{k=1}^r(s+\alpha_k)^2+\beta_k^2}
+$$
+
+In the time domain
+
+$$
+c(t) = a+\sum_{j=1}^q{b_j e^{-p_j t}}+\sum_{k=1}^r{A_ke^{-\alpha_k t}}\sin(\beta_k t+\theta_k)
+$$
+
+- real poles contribute exponential terms
+- complex pair of poles contribute damped oscillations
+- magnitude of contribution depends on residues
+
+### Stability of System Response
+
+The transient term will converge to zero if and only if **all poles** are on the **left-hand of plains** (LHP), and the further to the left on the LHP for the poles, the faster the convergence.
+
+#### Method 1: Direct Factorization
+
+Solve for solutions of characteristic equation
+
+$$
+a_0s^n+a_1s^{n-1}+\cdots+a_{n-1}s+a_n=0
+$$
+
+and check if all of them are on the LHP
+
+#### Method 2: Routh's Stability Criterion
+
+Determine the locations of roots without having to solve the equation
+
+- step 1: determine if all the coefficients of the characteristic equation have the same sign and are nonzero or it is unstable
+- step 2: if all coefficients are positive, arrange all coefficients in rows and columns to the following pattern, construct the Routh table
+
+| power of s |             column 1              |             column 2              | column 3 | $\cdots$ |
+| :--------: | :-------------------------------: | :-------------------------------: | :------: | :------: |
+|   $s^n$    |               $a_0$               |               $a_2$               |  $a_4$   | $\cdots$ |
+| $s^{n-1}$  |               $a_1$               |               $a_3$               |  $a_5$   | $\cdots$ |
+| $s^{n-2}$  |  $b_1=\frac{a_1a_2-a_0a_3}{a_1}$  | $b_2 = \frac{a_1a_4-a_0a_5}{a_1}$ | $\cdots$ | $\cdots$ |
+| $s^{n-3}$  |  $c_1=\frac{b_1a_3-a_1b_2}{b_1}$  |             $\cdots$              | $\cdots$ | $\cdots$ |
+|  $\vdots$  |             $\vdots$              |             $\cdots$              | $\vdots$ | $\vdots$ |
+|   $s^2$    |               $e_1$               |               $e_2$               |          |          |
+|   $s^1$    |               $f_1$               |                $0$                |          |          |
+|   $s^0$    | $g=\frac{f_1e_2-e_1\cdot 0}{f_1}$ |                                   |          |          |
+
+##### Special Case 1
+
+If the first element in any row of Rough's array is zero, but the others are not.
+
+The zero element in the first column should be replaced by small positive number of $\epsilon$, then proceed with Rough's array
+
+$$
+s^3+2s^2+s+2 = 0
+$$
+
+the array of coefficients is
+
+$$
+\begin{aligned}
+    s^4 &\quad 1\quad 1\quad 1\\[2ex]
+    s^3 &\quad 2\quad 2\\[2ex]
+    s^2 &\quad \varepsilon>0\quad 1\\[2ex]
+    s^1 &\quad 2-\frac{2}{\varepsilon}\\[2ex]
+    s^0 &\quad 1
+\end{aligned}
+$$
+
+##### Special Case 2
+
+An entire row of the Rough array may become zero, which indicates that there are roots of equal magnitude lying radially opposite in the s-plane
+
+The situation can be remedied by forming an **auxiliary polynomial** with the coefficients of the last row.
+
+$$
+s^6+2s^5+7s^4+12s^3+14s^2+16s+8=0
+$$
+
+the array of coefficients is
+
+$$
+\begin{aligned}
+    s^6 &\quad 1 \quad 7 \quad 14 \quad 8\\[2ex]
+    s^5 &\quad 2 \quad 12 \quad 16 \quad 0\\[2ex]
+    s^4 &\quad 1 \quad 6 \quad 8\\[2ex]
+    s^3 &\quad 0 \quad 0 \quad 0\\[2ex]
+    s^3 &\quad 4 \quad 12\\[2ex]
+    s^2 &\quad 3 \quad 8\\[2ex]
+    s^1 &\quad 4/3\\[2ex]
+    s^0 &\quad 8
+\end{aligned}
+$$
+
+the auxiliary polynomial is
+
+$$
+\begin{aligned}
+    p(s) &= s^4+6s^2+8\\[2ex]
+    \frac{\mathrm{d}p(s)}{\mathrm{d}s} &= 4s^3+12s
+\end{aligned}
+$$

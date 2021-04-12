@@ -45,7 +45,7 @@ $$
 Consider the first-order system in the figure above, the input-output relationship is given by
 
 $$
-\frac{C(s)}{R(s)} = \frac{1}{Ts+1}
+\frac{C(s)}{R(s)} = \frac{\frac{1}{Ts}}{1+\frac{1}{Ts}} = \frac{1}{Ts}
 $$
 
 ### Unit-Step Response of First-Order Systems
@@ -296,3 +296,228 @@ $$
     \frac{\mathrm{d}p(s)}{\mathrm{d}s} &= 4s^3+12s
 \end{aligned}
 $$
+
+#### Useful Tips for Stability
+
+|       System        |          Equation          |                                 Tip                                  |
+| :-----------------: | :------------------------: | :------------------------------------------------------------------: |
+| First order system  |        $a_0s+a_1=0$        |                  $a_1$ and $a_0$ have the same sign                  |
+| Second order system |    $a_0s^2+a_1s+a_2=0$     |              $a_2$, $a_1$ and $a_0$ have the same sign               |
+| Third order system  | $a_0s^3+a_1s^2+a_2s+a_3=0$ | $a_3$, $a_2$, $a_1$ and $a_0$ have the same sign and $a_1a_2>a_0a_3$ |
+
+## 3-6 Steady-State Errors in Feedback
+
+<div align = center><img height = 250 src = "../assets/ch3-6.png"></div>
+
+$$
+e(t) = r(t)-b(t)
+$$
+
+- $e(t)$: error
+- $r(t)$: reference input
+- $b(t)$: feedback signal
+
+Since the transfer function from the input or the disturbance to the error signal is
+
+$$
+\Phi_e(s) = \frac{E(s)}{R(s)}\qquad \Phi_{en}(s)=\frac{E(s)}{N(s)}
+$$
+
+Using the final value theorem to obtain the steady-state error
+
+$$
+e_{ss} = \lim_{s\to 0}s[\Phi_e(s)R(s)+\Phi_{en}(s)N(s)]
+$$
+
+The **steady-state error** is defined as
+
+$$
+e_{ss} = \lim_{t\to\infty}e(t)= \lim_{s\to 0}sE(s) = \lim_{s\to 0}s\Phi_e(s)R(s) = \lim_{s\to0}s\cdot\frac{1}{1+G(s)H(s)}\cdot R(s)
+$$
+
+> All roles of $sE(s)$ must lie on the left-half of the s-plane, which means the system is stable
+
+### Classification of Control Systems
+
+Consider a feed back control system with following open-loop transfer function
+
+$$
+G(s)H(s) = \frac{K_k\prod_{i=1}^m(T_is+1)}{s^N \prod_{j=1}^{n-N}(T_j s+1)}
+$$
+
+- $K_k$: open-loop gain
+- $N$: the number of integrations
+
+| the number of N | the system integration |
+| :-------------: | :--------------------: |
+|        0        |     type 0 system      |
+|        1        |     type 1 system      |
+|        2        |     type 2 system      |
+
+### Steady-State Errors in Unity-Feedback Control Systems
+
+<div align = center><img height = 250 src = "../assets/ch3-7.png"></div>
+
+$$
+e(t) = r(t)-c(t)
+$$
+
+The **steady-state error** is defined as
+
+$$
+e_{ss} = \lim_{t\to\infty}e(t) =  \lim_{s\to 0}sE(s) =\lim_{s\to0}\frac{sR(s)}{1+G(s)}
+$$
+
+#### Unit-Step Input
+
+The input signal is the unit-step signal, where $R(s)=\frac{1}{s}$
+
+$$
+e_{ss} = \lim_{s\to 0} sE(s) = \lim_{s\to 0}s\Phi_e(s)R(s)=s\cdot \frac{1}{1+G(s)} \cdot \frac{1}{s} = \frac{1}{1+\lim_{s\to 0}G(s)}=\frac{1}{1+K_p}
+$$
+
+> $K_p = \lim_{s\to 0}G(s)$, which is defined as the static position error constant
+
+##### Type 0 System
+
+For the type 0 system, there is no difference between static position error constant
+
+$$
+K_p = K_k
+$$
+
+Therefore, the steady-state error becomes to
+
+$$
+e_{ss} = \frac{1}{1+K_k}
+$$
+
+##### Type 1 System
+
+According to the definition of the static position error constant
+
+$$
+K_p = \lim_{s\to 0} \frac{K_k\prod_{i=1}^m(T_is+1)}{s \prod_{j=1}^{n-N}(T_j s+1)} = \infty
+$$
+
+Then the steady-state error becomes to
+
+$$
+e_{ss} = 0
+$$
+
+##### Type 2 System
+
+Similar to the type 1 system
+
+$$
+K_p = \infty \qquad e_{ss} =0
+$$
+
+#### Unit-Ramp Input
+
+The input signal is the unit-stamp signal, where $R(s) = \frac{1}{s^2}$
+
+$$
+e_{ss} = \lim_{s\to 0} sE(s) = \lim_{s\to 0}s\Phi_e(s)R(s)=\lim_{s\to 0}s\cdot \frac{1}{1+G(s)} \cdot \frac{1}{s^2} = \lim_{s\to 0}\frac{1}{sG(s)} = \frac{1}{K_v}
+$$
+
+> $K_v = \lim_{s\to 0}sG(s)$, which is defined as the static velocity error constant
+
+##### Type 0 System
+
+For the type 0 system, the steady-state error becomes to
+
+$$
+K_v = \lim_{s\to 0}sG(s) = 0
+$$
+
+Therefore, the steady-state error becomes to
+
+$$
+e_{ss} = \infty
+$$
+
+##### Type 1 System
+
+There is no difference between the 
+
+$$
+K_v = K_k
+$$
+
+Then the steady-state error becomes to
+
+$$
+e_{ss} = \frac{1}{K_k}
+$$
+
+##### Type 2 System
+
+$$
+K_v = \infty \qquad e_{ss} =0
+$$
+
+#### Unit-Parabolic Input
+
+The input signal is the unit-parabolic signal $r(t) = \frac{1}{2}t^2$, where $R(s) = \frac{1}{s^3}$
+
+$$
+e_{ss} = \lim_{s\to 0} sE(s) = \lim_{s\to 0}s\Phi_e(s)R(s)=\lim_{s\to 0}s\cdot \frac{1}{1+G(s)} \cdot \frac{1}{s^3} = \lim_{s\to 0}\frac{1}{s^2G(s)} = \frac{1}{K_a}
+$$
+
+> $K_a = \lim_{s\to 0}s^2G(s)$, which is defined as the static acceleration error constant
+
+##### Type 0 System
+
+For the type 0 system, the steady-state error becomes to
+
+$$
+K_a = \lim_{s\to 0}s^2G(s) = 0
+$$
+
+Therefore, the steady-state error becomes to
+
+$$
+e_{ss} = \infty
+$$
+
+##### Type 1 System
+
+There is no difference between the 
+
+$$
+K_a = \lim_{s\to 0}s^2G(s) = 0
+$$
+
+Then the steady-state error becomes to
+
+$$
+e_{ss} = \infty
+$$
+
+##### Type 2 System
+
+$$
+K_a = K_k \qquad e_{ss} =\frac{1}{K_k}
+$$
+
+| System Type |    Step Input     |   Ramp Input    | Acceleration Input |
+| :---------: | :---------------: | :-------------: | :----------------: |
+|   Type 0    | $\frac{1}{K_k+1}$ |    $\infty$     |      $\infty$      |
+|   Type 1    |         0         | $\frac{1}{K_k}$ |      $\infty$      |
+|   Type 2    |         0         |       $0$       |  $\frac{1}{K_k}$   |
+
+### Reduce or Eliminate the Steady State Error
+
+- Method 1: increase the open-loop gain
+- Method 2: increase the tpe of the system by adding a integrator or integrators to the feedforward path
+- Method 3: feedforward compensation
+
+#### Feedforward Compensation of Input
+
+<div align = center><img src = "../assets/ch3-8.png"></div>
+
+#### Feedforward Compensation of Disturbance
+
+<div align = center><img src = "../assets/ch3-9.png"></div>

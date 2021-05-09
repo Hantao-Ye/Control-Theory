@@ -297,6 +297,16 @@ $$
 \end{aligned}
 $$
 
+##### Relative Stability Analysis
+
+Apply Rough's stability criterion to the shifted s-palne axis
+
+<div align = center><img height = 300 src = "../assets/ch3-10.png"></div>
+
+Substitute $s=z-\sigma$ into the Rough's stability criterion
+
+
+
 #### Useful Tips for Stability
 
 |       System        |          Equation          |                                 Tip                                  |

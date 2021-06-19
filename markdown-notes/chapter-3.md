@@ -1,4 +1,4 @@
-# Chapter 3
+# Chapter 3 Steady-State and Stability Analysis
 
 ## 3-1 Transient and Steady-State Response Analysis
 
@@ -227,7 +227,7 @@ and check if all of them are on the LHP
 
 Determine the locations of roots without having to solve the equation
 
-- step 1: determine if all the coefficients of the characteristic equation have the same sign and are nonzero or it is unstable
+- step 1: determine if all the coefficients of the characteristic equation **have the same sign** and are **nonzero** or it is unstable
 - step 2: if all coefficients are positive, arrange all coefficients in rows and columns to the following pattern, construct the Routh table
 
 | power of s |             column 1              |             column 2              | column 3 | $\cdots$ |

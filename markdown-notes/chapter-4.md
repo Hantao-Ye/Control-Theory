@@ -1,4 +1,4 @@
-# Chapter 4
+# Chapter 4 Root Locus
 
 ## 4-1 Introduction of the Root Locus Method
 

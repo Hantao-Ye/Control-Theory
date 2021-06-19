@@ -1,4 +1,4 @@
-# Chapter 2
+# Chapter 2 Transfer Function and Block Diagram
 
 ## 2-1 Transfer Function and Impulse Response Function
 

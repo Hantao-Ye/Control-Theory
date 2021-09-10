@@ -10,7 +10,7 @@
 
 | Read In  |                            PDF                            |
 | :------: | :-------------------------------------------------------: |
-| 下载地址 | [unfinished](https://github.com/Hantao-Ye/Control-Theory) |
+| 下载地址 | [click-me](https://github.com/Hantao-Ye/Control-Theory/blob/main/pdf-notes/Overall.pdf) |
 
 如果遇到下载速度慢，使用以下方法(3选1)
 
